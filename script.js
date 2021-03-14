@@ -14,6 +14,7 @@ var progress = 0;
 var gamePlaying = false;
 var tonePlaying = false;
 var volume = 0.5; //must be between 0.0 and 1.0
+var guessCounter = 0 ;
 
 function startGame() {
   //initialize the game variables
@@ -60,6 +61,7 @@ function playSingleClue(btn) {
 }
 
 function playClueSequence() {
+  guessCounter = 0;
   let delay = nextClueWaitTime; //set delay to intial wait time
   for (let i = 0; i <= progress; i++) {
     //for each clue that is revealed so far
@@ -68,6 +70,21 @@ function playClueSequence() {
     delay += clueHoldTime;
     delay += cluePauseTime;
   }
+}
+
+function guess(btn){
+  console.log("user guessed: " + btn);
+  if(!gamePlaying){
+    return;
+  }
+  
+  if(!guess)
+  {
+    lostGame();
+  }
+  
+   
+  
 }
 
 //Sound Synthesis Functions
